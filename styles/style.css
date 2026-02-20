@@ -60,6 +60,33 @@ ul {
     list-style-type: none;
 }
 
+#preloader {
+
+    width: 100%;
+    height: 100vh;
+    background-color: #0C0102;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 999;
+ 
+}
+
+svg{
+width: 40vw;
+height: auto;
+
+}
+path{
+    fill:rgba(168, 19, 19, 0.364);
+    stroke:rgb(168, 19, 19);
+    stroke-width: 1px;
+    stroke-dasharray: 1140;
+    stroke-dashoffset: 1140;
+    
+}
+
 
 
 /* Header */
@@ -70,7 +97,7 @@ ul {
     align-items: center;
     padding: 4vw;
     position: absolute;
-    z-index: 2;
+    z-index: 3;
 }
 
 
@@ -84,6 +111,9 @@ ul {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    position: relative;
+    z-index: 2;
+    background-color: #0C0102;
 
 }
 
@@ -91,74 +121,67 @@ ul {
 
 .hero {
 
-    background-position: 50% 0%;
-    background-repeat: no-repeat;
-    background-size: cover;
-
     height: 100vh;
     align-items: center;
     position: relative;
 
-    .container {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0vw 7vw 7vw 7vw;
+}
 
-        picture {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-            z-index: 1;
-            left: 0;
-            top: 0;
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0vw 7vw 7vw 7vw;
+}
 
-            img {
-                object-fit: cover;
-                width: 100%;
-                height: 100%;
-                position: absolute;
-            }
 
-        }
+picture {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
 
-        .primary,
-        .secundary {
+picture img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
 
-            width: 30%;
-            z-index: 3;
 
-            h3 {
+.primary,
+.secundary {
 
-                font-size: 24px;
-                font-weight: 500;
-                letter-spacing: 4px;
+    width: 30%;
+    z-index: 3;
+}
 
-            }
+.hero-subtitle {
 
-            h1 {
-                font-size: 3.7vw;
-                font-family: "Benguiat";
-            }
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 4px;
+}
 
-        }
+.hero-title {
+    font-size: 3.7vw;
+    font-family: "Benguiat";
+}
 
-        .secundary {
+.secundary {
 
-            display: flex;
-            flex-direction: column;
-            align-items: end;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
 
-            p {
-                font-size: 2vw;
-                text-align: right;
-                margin-bottom: 32px;
-
-            }
-
-        }
-
-    }
+.textAnimation {
+    font-size: 2vw;
+    text-align: right;
+    margin-bottom: 32px;
 }
 
 .hero::before {
@@ -176,120 +199,117 @@ ul {
 
 /* Seção Cidades */
 
-.cities {
-
-    .container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 0vw 7vw 7vw 7vw;
 
 
-        .content {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin: 0 0 60px;
-
-        }
-
-        .cities-card {
-
-            display: flex;
-            justify-content: space-between;
-            list-style: none;
-            gap: 20px;
-
-            .city-card {
-
-                position: relative;
-                overflow: hidden;
-                flex: 1;
-
-            }
-
-            .card-image {
-                width: 100%;
-                aspect-ratio: 16 / 9;
-                object-fit: cover;
-                display: block;
-            }
-
-            .card-text {
-                position: absolute;
-                align-items: center;
-                left: 20px;
-                right: 20px;
-                bottom: 20px;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-
-            p {
-                font-size: 16px;
-            }
-
-        }
-
-    }
+.cities-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0vw 7vw 7vw 7vw;
 }
 
 
+.cities-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0 0 60px;
+
+}
+
+.cities-card {
+
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    gap: 20px;
+}
+
+.city-card {
+
+    position: relative;
+    overflow: hidden;
+    flex: 1;
+
+}
+
+.card-image {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    display: block;
+}
+
+.card-text {
+    position: absolute;
+    align-items: center;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p {
+    font-size: 16px;
+}
+
 /* Depoimentos */
-.testimonials {
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding: 0vw 7vw 7vw 7vw;
+.testimonials-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0vw 7vw 7vw 7vw;
+}
 
-        .brands {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 60px;
-        }
+.brands {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 60px;
+}
 
-        .list {
+.list-cards {
 
-            display: flex;
-            justify-content: space-between;
-            gap: 3%;
+    display: flex;
+    justify-content: space-between;
+    gap: 3%;
+}
 
-            .item p {
-                font-size: 16px;
-            }
-
-        }
-
-    }
-
+.item p {
+    font-size: 16px;
 }
 
 /* Communities */
 
 .communities {
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    background-color: #0C0102;
+    position: relative;
+    z-index: 2;
+}
 
-        width: 100%;
-        padding: 0vw 7vw 7vw 7vw;
-
-        .list {
-
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            margin-top: 60px;
-        }
-    }
+.communities-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0 7vw 0 7vw;
 
 }
+
+.communities-list {
+
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+
+
 
 /* Footer */
 
@@ -302,90 +322,100 @@ footer {
     background-repeat: no-repeat;
 
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+}
 
-        .content {
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
 
-            display: flex;
-            padding: 7vw 14vw;
+.footer-content {
 
-            .text {
+    display: flex;
+    padding: 7vw 14vw;
+}
 
-                width: 30%;
+.footer-text {
 
-                h3 {
+    width: 30%;
+}
 
-                    font-size: 24px;
-                    font-weight: 500;
-                    letter-spacing: 4px;
+.footer-subtitle {
 
-                }
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 4px;
 
-                h2 {
-                    font-size: 3.7vw;
-                    font-family: "Benguiat";
-                }
-            }
+}
 
-            .sections {
+.footer-title {
+    font-size: 3.7vw;
+    font-family: "Benguiat";
+}
 
-                display: flex;
-                justify-content: flex-end;
-                flex: 1;
-                gap: 6%;
-                align-items: flex-end;
+.footer-sections {
 
-                .social-media,
-                .parther,
-                .institution {
+    display: flex;
+    justify-content: flex-end;
+    flex: 1;
+    gap: 6%;
+    align-items: flex-end;
+}
 
-                    h3 {
-
-                        font-size: 18px;
-                        font-weight: 500;
-                        margin-bottom: 16px;
-                        letter-spacing: 1.5px;
-                    }
-
-                    .images {
-                        display: flex;
-                        gap: 12px;
-
-                    }
-                }
+.social-media h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 1.5px;
 
 
-            }
+}
 
-        }
+.images {
+    display: flex;
+    gap: 12px;
 
-        .footer-logos {
-            display: flex;
-            justify-content: space-between;
-            padding: 4vw;
+}
 
-        }
+.parter h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 1.5px;
 
-        .footer-textinfinity {
-            width: max-content;
-            display: flex;
+}
+
+.institution h3 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    letter-spacing: 1.5px;
+
+}
+
+.footer-logos {
+    display: flex;
+    justify-content: space-between;
+    padding: 4vw;
+
+}
+
+.footer-textinfinity {
+    width: max-content;
+    display: flex;
+
+}
 
 
 
-            h3 {
-                font-size: 12vw;
-                font-family: "Benguiat", sans-serif;
-                mix-blend-mode: color-dodge;
-                color: #d4d2d2;
-                animation: textoInfinito 12s infinite linear;
-                padding-left: 8vw;
-
-            }
-        }
-    }
+.footer-textinfinity h3 {
+    font-size: 12vw;
+    font-family: "Benguiat", sans-serif;
+    mix-blend-mode: color-dodge;
+    color: #d4d2d2;
+    animation: textoInfinito 12s infinite linear;
+    padding-left: 8vw;
 
 }
 
@@ -398,212 +428,3 @@ footer {
 }
 
 /* Responsividade*/
-
-@media (max-width: 360px) {
-    .hero {
-        height: auto;
-        padding: 120px 0 80px;
-        
-        .container {
-            flex-direction: column;
-            padding: 0 7vw;
-            gap: 40px;
-            
-            .primary, .secundary {
-                width: 100%;
-            }
-            
-            .primary h1 {
-                font-size: 32px;
-            }
-            
-            .secundary {
-                align-items: flex-start;
-                p {
-                    font-size: 16px;
-                    text-align: left;
-                }
-            }
-        }
-    }
-
-     /* --- SEÇÃO CIDADES --- */
-     .cities .container {
-        padding: 40px 7vw;
-    }
-
-    /* Título e Botão da Seção */
-    .cities .content {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-    }
-
-    .cities .content h2 { font-size: 18px; }
-
-    /* Cards de Cidades: Conteúdo Interno em Coluna */
-    .cities-card {
-        flex-direction: column;
-        gap: 20px;
-    }
-
-    .city-card .card-text {
-        position: relative; /* Mudança para garantir que o texto apareça bem no mobile */
-        left: 0;
-        right: 0;
-        bottom: 0;
-        padding: 15px 0;
-        flex-direction: column; /* Texto do card em coluna */
-        align-items: flex-start;
-        gap: 8px;
-    }
-
-    .city-card .card-text p {
-        font-size: 13px; /* Fonte menor para o nome da cidade */
-        font-weight: 500;
-    }
-
-    /* --- SEÇÃO DEPOIMENTOS --- */
-    /* Logos Lado a Lado e Menores */
-    .testimonials .brands {
-        flex-direction: row; /* Força as logos a ficarem lado a lado */
-        flex-wrap: wrap;     /* Permite quebra de linha se necessário */
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 30px;
-    }
-
-    .testimonials .brands img {
-        max-width: 50px; /* Logos bem pequenas para caberem lado a lado */
-        height: auto;
-        opacity: 0.8;
-    }
-
-    /* Depoimentos em Coluna */
-    .testimonials .list {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .testimonials .list .item p {
-        font-size: 13px;
-        line-height: 1.4;
-    }
-
-    /* --- SEÇÃO PARCEIROS / COMMUNITIES --- */
-    .communities .container h2 {
-        font-size: 18px; /* Título menor */
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-    /* Cidades em 03 Colunas */
-    .communities .list {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Força 3 colunas */
-        gap: 10px;
-        margin-top: 30px;
-        width: 100%;
-    }
-
-    .communities .list li {
-        font-size: 11px; /* Fonte pequena para caber em 3 colunas */
-        text-align: center;
-        list-style: none;
-    }
-
-       /* --- FOOTER ATUALIZADO --- */
-       footer .container {
-        padding: 60px 7vw 40px; /* Mais respiro no topo */
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza o conteúdo do container */
-    }
-
-    footer .content {
-        flex-direction: column;
-        align-items: center; /* Centraliza tudo em coluna */
-        padding: 0;
-        gap: 40px;
-        text-align: center; /* Garante textos centralizados */
-    }
-
-    footer .content .text {
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza h2 e h3 */
-        gap: 10px;
-    }
-
-    /* Títulos do Footer Centralizados (Estilo Hero) */
-    footer .content .text h3 { 
-        font-size: 16px; 
-        letter-spacing: 2px;
-        text-transform: uppercase;
-    }
-    
-    footer .content .text h2 { 
-        font-size: 28px; /* Benguiat com destaque, mas equilibrada */
-        line-height: 1.2;
-    }
-
-    footer .content .sections {
-        width: 100%;
-        flex-direction: column;
-        align-items: center; /* Centraliza as subseções */
-        gap: 35px;
-        text-align: center;
-    }
-
-    /* Ajuste de Redes Sociais e Outros Títulos Internos */
-    footer .sections .social-media,
-    footer .sections .parther,
-    footer .sections .institution {
-        display: flex;
-        flex-direction: column;
-        align-items: center; /* Centraliza títulos e listas */
-        width: 100%;
-    }
-
-    footer .sections h3 { 
-        font-size: 12px; /* Fonte menor conforme solicitado */
-        letter-spacing: 1.5px;
-        margin-bottom: 15px;
-        opacity: 0.8;
-    }
-
-    /* Ícones das Redes Sociais Menores */
-    footer .sections .images {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-    }
-
-    footer .sections .images img,
-    footer .sections .social-media img {
-        width: 20px; /* Ícones menores e delicados */
-        height: auto;
-        opacity: 0.9;
-    }
-
-    /* Listas do Footer */
-    footer .sections ul {
-        padding: 0;
-        margin: 0;
-    }
-
-    footer .sections ul li { 
-        font-size: 12px; 
-        margin-bottom: 10px;
-        list-style: none;
-    }
-
-    /* Texto Infinito no final */
-    .footer-textinfinity h3 {
-        font-size: 18vw; /* Um pouco maior para preencher bem o fundo */
-        text-align: center;
-        padding-left: 0; /* Remove o recuo para centralizar melhor */
-    }
-
-}
