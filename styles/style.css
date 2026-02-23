@@ -11,11 +11,15 @@
 }
 
 body {
-
+    height: 100%; 
     background-color: #0C0102;
     color: rgba(255, 255, 255, 0.9);
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
+
+}
+html{
+    height: 100%; 
 
 }
 
@@ -93,9 +97,10 @@ ul {
 
 .hero {
 
-    min-height: 100vh;
+    height: 100vh;
     align-items: center;
     position: relative;
+   
 
 }
 
@@ -104,8 +109,8 @@ ul {
     justify-content: space-between;
     width: 100%;
     padding: 0vw 7vw 7vw 7vw;
+    overflow: hidden;
 }
-
 
 picture {
     width: 100%;
@@ -186,6 +191,12 @@ picture img {
     font-size: 2vw;
     text-align: right;
     margin-bottom: 32px;
+}
+#hero-text{
+    font-size: 2vw;
+    text-align: right;
+    margin-bottom: 32px;
+
 }
 
 .hero::before {
@@ -658,6 +669,13 @@ footer {
         margin-bottom: 14px;
     }
 
+    #hero-text{
+        font-size: 16px;
+        text-align: right;
+        margin-bottom: 14px;
+
+    }
+
     /* ---------- Cidades ---------- */
 
     .cities-content {
@@ -954,6 +972,15 @@ footer {
         margin: 0;
         text-align: left;
     }
+    #hero-text {
+        width: 100%;
+        font-size: 20px;
+        line-height: 1.4;
+        margin: 0;
+        text-align: left;
+    }
+
+
 
     .secundary button {
         font-size: 14px;

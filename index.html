@@ -65,254 +65,263 @@
 
     </div>
 
-    <!-- Div Scroll Smoother -->
+    <!-- Div Scroll Smooth -->
 
-    <!--Header-->
+    <div id="smooth-wrapper">
 
-    <header class="site-header" aria-label="header">
+        <div id="smooth-content">
 
-        <h2>GC.</h2>
+            <!--Header-->
 
-        <img src="./icons/netflix-logo.svg" class="header-logo" alt="Netflix">
+            <header class="site-header" aria-label="header">
 
-    </header>
+                <h2>GC.</h2>
 
-    <!--Seção da Hero-->
+                <img src="./icons/netflix-logo.svg" class="header-logo" alt="Netflix">
 
-    <main>
-        <section class="hero" aria-label="Seção da Hero">
+            </header>
 
-            <div class="hero-container">
+            <!--Seção da Hero-->
 
-                <picture data-speed=".6">
-                    <source media="(max-width:600px )" srcset="imagens/bg-1-mobile.webp">
-                    <img src="imagens/bg-1.webp" alt="Imagem do Monstro">
+            <main>
+                <section class="hero" aria-label="Seção da Hero">
 
-                </picture>
+                    <div class="hero-container">
 
-                <picture>
-                    <source media="(max-width:600px)" srcset="imagens/bg-2-mobile.webp">
-                    <img src="imagens/bg-2.webp" alt="Imagem dos Personagens">
-                </picture>
+                    <picture data-speed="0.6" >
+                        <source media="(max-width:600px )" srcset="imagens/bg-1-mobile.webp">
+                        <img  class= "monstro"src="imagens/bg-1.webp" alt="Imagem do Monstro">
 
-                <div class="primary">
-                    <h3 class="hero-subtitle">THE EXPERIENCE</h3>
-                    <h1 class="hero-title">STRANGER THINGS</h1>
+                    </picture>
 
-                </div>
+                    <picture >
+                        <source media="(max-width:600px)" srcset="imagens/bg-2-mobile.webp">
+                        <img class= "personagens" src="imagens/bg-2.webp" alt="Imagem dos Personagens">
+                    </picture>
 
-                <div class="secundary">
-                    <p class="textAnimation">Descubra os seus poderes e vire herói de sua própria aventura!</p>
+                        <div class="primary">
+                            <h3 class="hero-subtitle">THE EXPERIENCE</h3>
+                            <h1 class="hero-title">STRANGER THINGS</h1>
 
-                    <button class="btn">
-                        ESCOLHA SUA CIDADE
-                        <img src="./icons/seta-botao.svg" alt="Seta">
-                    </button>
+                        </div>
 
-                </div>
+                        <div class="secundary">
+                            <p id="hero-text">Descubra os seus poderes e vire herói de sua própria aventura!</p>
 
-            </div>
+                            <button class="btn">
+                                ESCOLHA SUA CIDADE
+                                <img src="./icons/seta-botao.svg" alt="Seta">
+                            </button>
 
-        </section>
-
-
-        <div class="bgMonstro">
-
-            <!-- Seção cidades -->
-
-            <section class="cities" aria-label="Seção Cidades">
-
-                <div class="cities-container">
-
-                    <div class="cities-content">
-
-                        <h2 class="textAnimation">ESCOLHA SUA CIDADE.</h2>
-
-                        <button>
-                            COMPRAR INGRESSOS
-                            <img src="./icons/seta-botao.svg" alt="Seta">
-                        </button>
+                        </div>
 
                     </div>
 
+                </section>
 
-                    <ul class="cities-card">
 
-                        <li class="city-card">
-                            <img class="card-image" src="./imagens/card1.webp" alt="Cidade de Sidney">
-                            <div class="card-text">
-                                <h2>Sidney</h2>
-                                <p>INGRESSOS DISPONÍVEIS</p>
+                <div class="bgMonstro">
+
+                    <!-- Seção cidades -->
+
+                    <section class="cities" aria-label="Seção Cidades">
+
+                        <div class="cities-container">
+
+                            <div class="cities-content">
+
+                                <h2 class="textAnimation">ESCOLHA SUA CIDADE.</h2>
+
+                                <button>
+                                    COMPRAR INGRESSOS
+                                    <img src="./icons/seta-botao.svg" alt="Seta">
+                                </button>
+
                             </div>
 
-                        </li>
-                        <li class="city-card">
-                            <img class="card-image" src="./imagens/card2.webp" alt="Cidade de Mexico">
-                            <div class="card-text">
-                                <h2>México</h2>
-                                <p>INGRESSOS DISPONÍVEIS</p>
-                            </div>
-                        </li>
-                        <li class="city-card">
-                            <img class="card-image" src="./imagens/card3.webp" alt="Cidade da Inglaterra">
-                            <div class="card-text">
-                                <h2>Inglaterra</h2>
-                                <p>INGRESSOS DISPONÍVEIS</p>
-                            </div>
-                        </li>
 
-                    </ul>
-                </div>
+                            <ul class="cities-card">
 
+                                <li class="city-card">
+                                    <img class="card-image" src="./imagens/card1.webp" alt="Cidade de Sidney">
+                                    <div class="card-text">
+                                        <h2>Sidney</h2>
+                                        <p>INGRESSOS DISPONÍVEIS</p>
+                                    </div>
 
-            </section>
-
-            <!-- Seção Depoimentos -->
-
-            <section class="testimonials" aria-label="Seção Depoimentos">
-
-                <div class="testimonials-container">
-
-                    <div class="brands">
-                        <img class="brand" src="./icons/netflix-logo.svg" alt="Netflix">
-                        <img class="brand" src="./icons/clio-logo.svg" alt="Clio">
-                        <img class="brand" src="./icons/fever-logo.svg" alt="Fever">
-
-                    </div>
-
-                    <ul class="list-cards">
-
-                        <li class="item">
-                            <img src="./imagens/img-dep1.webp" alt="Cidade de Sidney">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque quisquam
-                            </p>
-                        </li>
-                        <li class="item">
-                            <img src="./imagens/img-dep2.webp" alt="Cidade de Mexico">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque quisquam
-                            </p>
-                        </li>
-                        <li class="item">
-                            <img src="./imagens/img-dep3.webp" alt="Cidade de Inglaterra">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque quisquam
-                            </p>
-                        </li>
-
-                    </ul>
-                </div>
-
-            </section>
-
-        </div>
-
-        <!-- Seção Communities -->
-
-        <section class="communities" aria-label="Seção Comunidades">
-
-            <div class="communities-container">
-
-                <h2 class="textAnimation">OBRIGADO POR SE JUNTAR A NÓS NESTA AVENTURA EM:</h2>
-
-                <ul class="communities-list">
-
-                    <li>Sidney</li>
-                    <li>Rio de Janeiro</li>
-                    <li>São Paulo</li>
-                    <li>Los Angeles</li>
-                    <li>Nova Ioque</li>
-                    <li>São Franciso</li>
-                    <li>Londres</li>
-                    <li>Atlanta</li>
-                    <li>Toronto</li>
-                    <li>Portugal</li>
-
-                </ul>
-            </div>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-
-    <footer aria-label="Footer">
-
-        <div class="footer-container">
-
-            <div class="footer-content">
-
-                <div class="footer-text">
-                    <h3 class="footer-subtitle">THE EXPERIENCE</h3>
-                    <h2 class="footer-title">STRANGER THINGS</h2>
-                </div>
-
-                <div class="footer-sections">
-
-                    <div class="social-media">
-
-                        <h3>REDES SOCIAIS</h3>
-
-                        <ul class="images">
-                            <li>
-                                <img class="image" src="./icons/facebook.svg" alt="Facebook">
-                            </li>
-                            <li>
-                                <img class="image " src="./icons/instagram.svg" alt="Instagram">
-                            </li>
-                            <li>
-                                <img class="image " src="./icons/twitter.svg" alt="Twitter">
-                            </li>
-
-                        </ul>
-
-                    </div>
-
-                    <div class="parter">
-
-                        <h3>PARCEIROS COMERCIAIS</h3>
-                        <img src="./icons/secret-media.svg" alt="secret-media">
-
-                    </div>
-
-                    <div class="institution">
-
-                        <h3>INSTITUCIONAL</h3>
-                        <nav class="footer-nav">
-                            <ul>
-                                <li>Contato</li>
-                                <li>Imprensa</li>
-                                <li>Parcerias</li>
-                                <li>Influenciadores</li>
+                                </li>
+                                <li class="city-card">
+                                    <img class="card-image" src="./imagens/card2.webp" alt="Cidade de Mexico">
+                                    <div class="card-text">
+                                        <h2>México</h2>
+                                        <p>INGRESSOS DISPONÍVEIS</p>
+                                    </div>
+                                </li>
+                                <li class="city-card">
+                                    <img class="card-image" src="./imagens/card3.webp" alt="Cidade da Inglaterra">
+                                    <div class="card-text">
+                                        <h2>Inglaterra</h2>
+                                        <p>INGRESSOS DISPONÍVEIS</p>
+                                    </div>
+                                </li>
 
                             </ul>
+                        </div>
 
-                        </nav>
+
+                    </section>
+
+                    <!-- Seção Depoimentos -->
+
+                    <section class="testimonials" aria-label="Seção Depoimentos">
+
+                        <div class="testimonials-container">
+
+                            <div class="brands">
+                                <img class="brand" src="./icons/netflix-logo.svg" alt="Netflix">
+                                <img class="brand" src="./icons/clio-logo.svg" alt="Clio">
+                                <img class="brand" src="./icons/fever-logo.svg" alt="Fever">
+
+                            </div>
+
+                            <ul class="list-cards">
+
+                                <li class="item">
+                                    <img src="./imagens/img-dep1.webp" alt="Cidade de Sidney">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque quisquam
+                                    </p>
+                                </li>
+                                <li class="item">
+                                    <img src="./imagens/img-dep2.webp" alt="Cidade de Mexico">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque quisquam
+                                    </p>
+                                </li>
+                                <li class="item">
+                                    <img src="./imagens/img-dep3.webp" alt="Cidade de Inglaterra">
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni cumque quisquam
+                                    </p>
+                                </li>
+
+                            </ul>
+                        </div>
+
+                    </section>
+
+                </div>
+
+                <!-- Seção Communities -->
+
+                <section class="communities" aria-label="Seção Comunidades">
+
+                    <div class="communities-container">
+
+                        <h2 class="textAnimation">OBRIGADO POR SE JUNTAR A NÓS NESTA AVENTURA EM:</h2>
+
+                        <ul class="communities-list">
+
+                            <li>Sidney</li>
+                            <li>Rio de Janeiro</li>
+                            <li>São Paulo</li>
+                            <li>Los Angeles</li>
+                            <li>Nova Ioque</li>
+                            <li>São Franciso</li>
+                            <li>Londres</li>
+                            <li>Atlanta</li>
+                            <li>Toronto</li>
+                            <li>Portugal</li>
+
+                        </ul>
+                    </div>
+
+                </section>
+
+            </main>
+
+            <!-- Footer -->
+
+            <footer aria-label="Footer">
+
+                <div class="footer-container">
+
+                    <div class="footer-content">
+
+                        <div class="footer-text">
+                            <h3 class="footer-subtitle">THE EXPERIENCE</h3>
+                            <h2 class="footer-title">STRANGER THINGS</h2>
+                        </div>
+
+                        <div class="footer-sections">
+
+                            <div class="social-media">
+
+                                <h3>REDES SOCIAIS</h3>
+
+                                <ul class="images">
+                                    <li>
+                                        <img class="image" src="./icons/facebook.svg" alt="Facebook">
+                                    </li>
+                                    <li>
+                                        <img class="image " src="./icons/instagram.svg" alt="Instagram">
+                                    </li>
+                                    <li>
+                                        <img class="image " src="./icons/twitter.svg" alt="Twitter">
+                                    </li>
+
+                                </ul>
+
+                            </div>
+
+                            <div class="parter">
+
+                                <h3>PARCEIROS COMERCIAIS</h3>
+                                <img src="./icons/secret-media.svg" alt="secret-media">
+
+                            </div>
+
+                            <div class="institution">
+
+                                <h3>INSTITUCIONAL</h3>
+                                <nav class="footer-nav">
+                                    <ul>
+                                        <li>Contato</li>
+                                        <li>Imprensa</li>
+                                        <li>Parcerias</li>
+                                        <li>Influenciadores</li>
+
+                                    </ul>
+
+                                </nav>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="footer-logos">
+
+                        <img src="./icons/netflix-logo.svg" alt="Netflix-logo">
+                        <img src="./icons/fever-logo.svg" alt="Fever-logo">
+
+                    </div>
+                    <div class="footer-textinfinity">
+
+                        <h3>THE EXPERIENCE</h3>
+                        <h3>THE EXPERIENCE</h3>
+                        <h3>THE EXPERIENCE</h3>
 
                     </div>
 
                 </div>
 
-            </div>
+            </footer>
 
-
-            <div class="footer-logos">
-
-                <img src="./icons/netflix-logo.svg" alt="Netflix-logo">
-                <img src="./icons/fever-logo.svg" alt="Fever-logo">
-
-            </div>
-            <div class="footer-textinfinity">
-
-                <h3>THE EXPERIENCE</h3>
-                <h3>THE EXPERIENCE</h3>
-                <h3>THE EXPERIENCE</h3>
-
-            </div>
 
         </div>
 
-    </footer>
 
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
