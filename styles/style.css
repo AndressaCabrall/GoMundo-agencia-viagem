@@ -1,4 +1,5 @@
 /* Reset básico */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -7,63 +8,66 @@
 
 @font-face {
     font-family: Benguiat;
-    src: url("/fonts/Benguiat\ Bold.ttf");
+    src: url("/fonts/Benguiat Bold.ttf");
+}
+
+html {
+    height: 100%;
+    font-size: 16px;
+    /* base para rem */
 }
 
 body {
-    height: 100%; 
+    min-height: 100%;
     background-color: #0C0102;
     color: rgba(255, 255, 255, 0.9);
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;
-
-}
-html{
-    height: 100%; 
-
 }
 
 button {
-
     font-family: "Poppins", sans-serif;
 }
 
+/* Sections */
 section {
     width: 100%;
     display: flex;
-    padding: 7vw;
-
+    padding: 5rem 7rem;
+    /* antes era 7vw */
 }
 
+/* Botões */
 button {
     background-color: transparent;
-    color: #fff;
-    font-size: 16px;
-    display: flex;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
 
-    gap: 12px;
-    padding: 16px 0px;
+    display: flex;
+    gap: 0.75rem;
+
+    padding: 1rem 0;
     border: none;
-    outline: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+
+    margin-top: 2rem;
+    width: fit-content;
 }
 
 button:hover {
     cursor: pointer;
 }
 
+/* Tipografia */
 h2 {
-    font-size: 24px;
+    font-size: clamp(1.5rem, 2vw, 2rem);
     font-weight: 500;
-    letter-spacing: 2px;
+    letter-spacing: 0.125rem;
 }
-
 
 ul {
-
-    list-style-type: none;
+    list-style: none;
 }
-
 
 /* Header */
 .site-header {
@@ -71,26 +75,33 @@ ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 4vw;
+
+    padding: 2.5rem 4rem;
+    /* antes 4vw */
     position: absolute;
     z-index: 3;
 }
 
-
 .header-logo {
-    width: 100px;
+    width: 6.25rem;
+    /* 100px convertido */
     height: auto;
 }
 
-.bgMonstro {
-    background: url('../imagens/bg-sec2.webp');
+/* Background */
+.bgMundo {
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.97),
+            rgba(0, 0, 0, 0.60)),
+        url('../imagens/bgEuropa.webp');
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+
     position: relative;
     z-index: 2;
     background-color: #0C0102;
-
 }
 
 /* Seção Hero */
@@ -98,18 +109,19 @@ ul {
 .hero {
 
     height: 100vh;
-    align-items: center;
     position: relative;
-   
+
 
 }
 
 .hero-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    gap: 18px;
     width: 100%;
-    padding: 0vw 7vw 7vw 7vw;
     overflow: hidden;
+    padding: 0rem 7rem 4rem 7rem;
 }
 
 picture {
@@ -128,82 +140,58 @@ picture img {
     position: absolute;
 }
 
-.preloader {
-
-    position: fixed;
-    inset: 0;
-    z-index: 9999;
-    background-color: #0C0102;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo {
-
-    width: clamp(180px, 28vw, 520px);
-    height: auto;
-
-}
-
-.logo-fill {
-
-    opacity: 0;
-    fill: rgba(168, 19, 19, 0.364);
-    filter: blur(2px);
-
-}
-
-.logo-stroke {
-
-    fill: none;
-    stroke: rgb(168, 19, 19);
-    stroke-width: 2;
-}
-
-.primary,
-.secundary {
-
-    width: 30%;
-    z-index: 3;
-}
-
 .hero-subtitle {
 
-    font-size: 24px;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     font-weight: 500;
     letter-spacing: 4px;
+    margin-bottom: 2rem;
 }
 
 .hero-title {
-    font-size: 3.7vw;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
     font-family: "Benguiat";
+}
+
+.primary {
+    width: 50%;
+    z-index: 3;
+    margin-top: 6rem;
+
+}
+
+.secundary {
+
+    width: 60%;
+    z-index: 3;
+
+
 }
 
 .secundary {
 
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: flex-start;
+
 }
 
 .textAnimation {
-    font-size: 2vw;
-    text-align: right;
-    margin-bottom: 32px;
+    font-size: clamp(1.5rem, 2vw, 2.2rem);
+
 }
-#hero-text{
-    font-size: 2vw;
-    text-align: right;
-    margin-bottom: 32px;
+
+#hero-text {
+    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+
 
 }
 
 .hero::before {
     content: "";
-    background: radial-gradient(ellipse at 50% 30%,
-            rgba(12, 1, 2, 0) 0%,
-            rgba(6, 1, 2, 1) 80%);
+    background: linear-gradient(rgba(0, 0, 0, 0.60),
+            rgba(0, 0, 0, 0.60));
     width: 100%;
     height: 100%;
     position: absolute;
@@ -215,12 +203,11 @@ picture img {
 /* Seção Cidades */
 
 
-
 .cities-container {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 0vw 7vw 7vw 7vw;
+    padding: 0rem 7rem 4rem 7rem;
 }
 
 
@@ -228,47 +215,64 @@ picture img {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
-    margin: 0 0 60px;
+    margin: 0 0 4rem;
 
 }
 
 .cities-card {
 
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
     list-style: none;
-    gap: 20px;
+    padding: 0;
+    margin: 0;
 }
 
 .city-card {
 
     position: relative;
     overflow: hidden;
-    flex: 1;
+
 
 }
 
+.city-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.60),
+            rgba(0, 0, 0, 0.60));
+    z-index: 1;
+}
+
 .card-image {
+
     width: 100%;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 1/1;
     object-fit: cover;
     display: block;
 }
 
+
 .card-text {
     position: absolute;
-    align-items: center;
+    z-index: 2;
     left: 20px;
     right: 20px;
     bottom: 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
+
 }
 
 p {
-    font-size: 16px;
+    font-size: clamp(0.95rem, 1vw, 1.1rem);
+    line-height: 1.6;
 }
+
 
 /* Depoimentos */
 
@@ -276,32 +280,50 @@ p {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding: 0vw 7vw 7vw 7vw;
+    padding: 0rem 7rem 4rem 7rem;
 }
 
-.brands {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-bottom: 60px;
+.testimonials-text h2 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    margin-bottom: 3.5rem;
+    letter-spacing: 2px;
 }
+
 
 .list-cards {
-
+    list-style: none;
     display: flex;
-    justify-content: space-between;
-    gap: 3%;
+    gap: 4rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 0;
+}
+
+.item {
+    max-width: 350px;
+    min-height: 220px;
+    padding: 2rem;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    /* fundo transparente */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    /* borda visível */
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
 }
 
 .item p {
-    font-size: 16px;
+    font-size: clamp(0.95rem, 1vw, 1.1rem);
+    line-height: 1.6;
+
 }
 
 /* Communities */
 
 .communities {
 
-    background-color: #0C0102;
+
     position: relative;
     z-index: 2;
 }
@@ -309,9 +331,16 @@ p {
 .communities-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: left;
     width: 100%;
-    padding: 0 7vw 0 7vw;
+    padding: 0 7rem 0 7rem;
+
+}
+
+.communities-text p {
+    font-size: clamp(0.95rem, 1vw, 1.1rem);
+    line-height: 1.6;
+    margin-top: 1.5rem;
 
 }
 
@@ -320,10 +349,68 @@ p {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    margin-top: 60px;
+    margin-top: 3rem;
 }
 
+.community-form {
+    margin-top: 4rem;
+    max-width: 700px;
+    width: 100%;
+    padding: 1.5rem;
+    border-radius: 16px;
+    margin-left: auto;
+    margin-right: auto;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
 
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.community-form h3 {
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 1px;
+
+}
+
+.form-group input,
+.form-group select {
+
+    font-size: clamp(0.95rem, 1vw, 1.1rem);
+    width: 100%;
+    padding: 0.75rem 0.95rem;
+    border-radius: 10px;
+
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    outline: none;
+}
+
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.community-form button {
+
+    padding: 0.90rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+
+    background: rgba(255, 255, 255, 0.15);
+
+
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.community-form button:hover {
+    transform: translateY(-4px);
+    background: rgba(255, 255, 255, 0.25);
+}
 
 
 /* Footer */
@@ -331,7 +418,9 @@ p {
 footer {
 
     width: 100%;
-    background-image: url("../imagens/bg-footer.webp");
+    background-image: radial-gradient(ellipse at 50% 30%,
+            rgba(12, 1, 2, 0) 0%,
+            rgba(6, 1, 2, 1) 80%), url("../imagens/maldivas-desktop.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -348,7 +437,7 @@ footer {
 .footer-content {
 
     display: flex;
-    padding: 7vw 14vw;
+    padding: 10rem 14rem;
 }
 
 .footer-text {
@@ -358,14 +447,15 @@ footer {
 
 .footer-subtitle {
 
-    font-size: 24px;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     font-weight: 500;
     letter-spacing: 4px;
 
 }
 
 .footer-title {
-    font-size: 3.7vw;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.1;
     font-family: "Benguiat";
 }
 
@@ -375,36 +465,35 @@ footer {
     justify-content: flex-end;
     flex: 1;
     gap: 6%;
-    align-items: flex-end;
+    
 }
 
 .social-media h3 {
-    font-size: 18px;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     font-weight: 500;
-    margin-bottom: 16px;
+    margin-bottom: 2rem;
     letter-spacing: 1.5px;
-
 
 }
 
 .images {
     display: flex;
-    gap: 12px;
+    gap: 3rem;
 
 }
 
-.parter h3 {
-    font-size: 18px;
+.services h3 {
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     font-weight: 500;
-    margin-bottom: 16px;
+    margin-bottom: 2rem;
     letter-spacing: 1.5px;
 
 }
 
 .institution h3 {
-    font-size: 18px;
+    font-size: clamp(1.1rem, 1.5vw, 1.5rem);
     font-weight: 500;
-    margin-bottom: 16px;
+    margin-bottom: 2rem;
     letter-spacing: 1.5px;
 
 }
@@ -412,7 +501,7 @@ footer {
 .footer-logos {
     display: flex;
     justify-content: space-between;
-    padding: 4vw;
+    padding: 4rem;
 
 }
 
@@ -421,16 +510,19 @@ footer {
     display: flex;
 
 }
+.footer-nav li{
+    margin-bottom: 1.2rem;
+}
 
 
 
 .footer-textinfinity h3 {
-    font-size: 12vw;
+    color: rgba(181, 175, 175, 0.842);
+    font-size: 12rem;
     font-family: "Benguiat", sans-serif;
     mix-blend-mode: color-dodge;
-    color: #d4d2d2;
     animation: textoInfinito 12s infinite linear;
-    padding-left: 8vw;
+    padding-left: 8rem;
 
 }
 
@@ -669,7 +761,7 @@ footer {
         margin-bottom: 14px;
     }
 
-    #hero-text{
+    #hero-text {
         font-size: 16px;
         text-align: right;
         margin-bottom: 14px;
@@ -972,6 +1064,7 @@ footer {
         margin: 0;
         text-align: left;
     }
+
     #hero-text {
         width: 100%;
         font-size: 20px;
@@ -1190,18 +1283,14 @@ footer {
         margin-bottom: 14vw;
         /* respiro antes do footer */
     }
-    .footer-container{
-        padding-top: 14vw; /* ajuste fino: 8vw–20vw */
-      }
+
+    .footer-container {
+        padding-top: 14vw;
+        /* ajuste fino: 8vw–20vw */
+    }
 }
 
 @media (max-width: 360px) {
-
-    .card-text {
-        bottom: 30px;
-        /* aumente para subir mais: 28px, 32px... */
-    }
-
 
     .communities-container {
         width: 92%;
@@ -1224,7 +1313,9 @@ footer {
         max-width: 170px;
 
     }
-    .footer-container{
-        padding-top: 14vw; /* ajuste fino: 8vw–20vw */
-      }
+
+    .footer-container {
+        padding-top: 14vw;
+        /* ajuste fino: 8vw–20vw */
+    }
 }
