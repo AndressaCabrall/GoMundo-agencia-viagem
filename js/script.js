@@ -1,69 +1,35 @@
 ﻿/**
- * 1. CONFIGURAÇÕES E PLUGINS
- * Registra as ferramentas necessárias do GSAP.
+ * ======================================================
+ * 1. REGISTRO DE PLUGINS
+ * Ativa os plugins necessários do GSAP.
+ * ======================================================
  */
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, SplitText);
 
-// 1. Desativa a restauração nativa de scroll do navegador
-if (history.scrollRestoration) {
-  history.scrollRestoration = "manual";
-}
 
 /**
- * 2. BLOQUEIO DE SCROLL INICIAL
- * Impede que o usuário role a página enquanto o preloader está ativo.
- */
-document.documentElement.style.overflow = "hidden";
-document.body.style.overflow = "hidden";
-
-/**
- * 3. VARIÁVEIS DO PRELOADER
- * Referências aos elementos que compõem a animação de entrada.
- * - strokePaths: As linhas do contorno do logo.
- * - fillGroup: O preenchimento colorido/sólido do logo.
- * - preloader: O container preto/fundo que cobre a tela.
- */
-const preloader = document.querySelector(".preloader");
-const strokePaths = document.querySelectorAll(".logo-stroke path");
-const fillGroup = document.querySelector(".logo-fill");
-const logo = document.querySelector(".logo");
-
-/**
- * 4. ESTADO INICIAL DO PRELOADER (SVG STROKE)
- * Configura o efeito de "desenho" das linhas do logo.
- */
-gsap.set(".hero", { autoAlpha: 0 }); // Garante que o site comece invisível atrás do preloader
-
-if (strokePaths.length) {
-  strokePaths.forEach((path) => {
-    const length = path.getTotalLength();
-    path.style.strokeDasharray = length;
-    path.style.strokeDashoffset = length;
-    path.style.strokeLinecap = "round";
-    path.style.stroke = "rgb(168,19,19)";
-    path.style.fill = "transparent";
-  });
-}
-if (logo) gsap.set(logo, { autoAlpha: 1 });
-if (fillGroup) gsap.set(fillGroup, { autoAlpha: 0, filter: "blur(2px)" });
-
-/**
- * 5. FUNÇÕES DE ANIMAÇÃO DE TEXTOS (SPLITTEXT)
- * Lógica para quebrar textos em caracteres e animar ao rolar.
+ * ======================================================
+ * 2. ANIMAÇÕES DE TEXTO (SCROLL)
+ * Divide textos em caracteres e anima quando entram na viewport.
+ * ======================================================
  */
 const initTextAnimations = () => {
   const grupoTextSplit = document.querySelectorAll(".textAnimation");
 
   grupoTextSplit.forEach(textoUnicoSplit => {
-    // Pula o texto da hero (ID hero-text) pois ele tem animação própria na timeline
+
+    // Ignora o texto da hero, pois ele possui animação própria
     if (textoUnicoSplit.id === "hero-text") return;
 
-    const split = new SplitText(textoUnicoSplit, { type: "lines,words,chars" });
+    const split = new SplitText(textoUnicoSplit, { 
+      type: "lines,words,chars" 
+    });
+
     gsap.from(split.chars, {
       y: 40,
+      opacity: 0,
       duration: 0.3,
       stagger: 0.05,
-      opacity: 0,
       scrollTrigger: {
         trigger: textoUnicoSplit,
         start: "top 90%",
@@ -72,12 +38,16 @@ const initTextAnimations = () => {
   });
 };
 
+
 /**
- * 6. ANIMAÇÕES DE SEÇÕES (CARDS, LISTAS E FOOTER)
- * Define como os elementos internos do site aparecem durante o scroll.
+ * ======================================================
+ * 3. ANIMAÇÕES DE SEÇÕES
+ * Define os efeitos de entrada para cards, listas e footer.
+ * ======================================================
  */
 const initSectionAnimations = () => {
-  // Seção Cidades (Cards)
+
+  // Cards da seção de cidades
   gsap.from(".city-card", {
     opacity: 0,
     y: 60,
@@ -92,7 +62,7 @@ const initSectionAnimations = () => {
     },
   });
 
-  // Seção Comunidades (Lista)
+  // Lista da seção comunidades
   gsap.from(".communities-list li", {
     opacity: 0,
     x: -40,
@@ -107,7 +77,7 @@ const initSectionAnimations = () => {
     },
   });
 
-  // Footer (Efeito Parallax Reverso)
+  // Footer com leve efeito parallax reverso
   gsap.from("footer", {
     yPercent: -30,
     scrollTrigger: {
@@ -118,12 +88,18 @@ const initSectionAnimations = () => {
   });
 };
 
+
 /**
- * 7. TIMELINE PRINCIPAL (O CORAÇÃO DO SITE)
- * Orquestra o Preloader -> Revelação da Hero -> Ativação do Restante.
+ * ======================================================
+ * 4. INICIALIZAÇÃO PRINCIPAL
+ * - Ativa ScrollSmoother
+ * - Executa animação inicial da Hero
+ * - Inicializa animações de scroll
+ * ======================================================
  */
 window.addEventListener("load", () => {
-  // 1. Inicializa o Scroll Suave primeiro
+
+  // Inicializa Scroll Suave
   const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
@@ -132,42 +108,41 @@ window.addEventListener("load", () => {
     normalizeScroll: true
   });
 
-  // 2. Trava o scroll usando a API nativa do GSAP (substitui o overflow: hidden)
-  smoother.paused(true);
+  // Garante que a hero esteja visível no carregamento
+  gsap.set(".hero", { autoAlpha: 1 });
 
-  const mainTl = gsap.timeline({
+  // Divide o texto da hero para animação individual
+  const heroElement = document.querySelector("#hero-text");
+  const heroSplit = heroElement 
+    ? new SplitText(heroElement, { type: "lines,words,chars" }) 
+    : null;
+
+  // Timeline da animação inicial da hero
+  const heroTl = gsap.timeline({
     onComplete: () => {
-      // 3. Destrava o scroll suave
-      smoother.paused(false);
-
-      // Inicializa as animações de scroll
       initTextAnimations();
       initSectionAnimations();
-
-      // Recalcula as posições agora que o site está visível e rolável
       ScrollTrigger.refresh();
     }
   });
 
-  // Prepara o texto da Hero com ID específico
-  const heroElement = document.querySelector("#hero-text");
-  const heroSplit = heroElement ? new SplitText(heroElement, { type: "lines,words,chars" }) : null;
-
-  // Sequência de execução (mantém a sua lógica original)
-  mainTl
-    .to(strokePaths, { strokeDashoffset: 0, duration: 1, stagger: 0.2 })
-    .to(fillGroup, { autoAlpha: 1, filter: "blur(0px)", duration: 0.5 }, "-=0.5")
-    .addLabel("saida")
-    .to(preloader, { autoAlpha: 0, duration: 0.8 }, "saida")
-    .to(".hero", { autoAlpha: 1, duration: 0.8 }, "saida")
-    .from(".monstro", { y: -70, autoAlpha: 0, duration: 0.8 }, "saida+=0.3")
-    .from(".personagens", { y: 70, autoAlpha: 0, duration: 0.8 }, "saida+=0.3")
+  heroTl
+    .from(".monstro", { 
+      y: -70,
+      autoAlpha: 0,
+      duration: 0.8 
+    })
+    .from(".personagens", { 
+      y: 70,
+      autoAlpha: 0,
+      duration: 0.8 
+    }, "-=0.6")
     .from(heroSplit ? heroSplit.chars : [], {
       y: 30,
       opacity: 0,
       duration: 0.8,
       stagger: 0.02,
       ease: "power2.out"
-    }, "saida+=0.5")
-    .set(preloader, { display: "none" });
+    }, "-=0.5");
+
 });
