@@ -60,7 +60,7 @@ a {
 
 }
 
-/***************/
+/***************************************************************************/
 /* HEADER */
 
 .site-header {
@@ -76,15 +76,17 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 5%; 
+  padding: 20px 5%;
 }
 
 .header-logo {
   display: flex;
   align-items: center;
-  width: clamp(120px, 15vw, 200px); /* O clamp já resolve a maioria das telas */
+  width: clamp(120px, 15vw, 200px);
+  /* O clamp já resolve a maioria das telas */
   filter: brightness(0) invert(1);
 }
+
 /* Esconde menu desktop no mobile */
 .nav-menu {
   display: none;
@@ -181,8 +183,11 @@ a {
 /* DESKTOP */
 
 @media (min-width: 1024px) {
+
   /* Esconde o que é mobile */
-  .menu-toggle, .menu-mobile, .menu-overlay {
+  .menu-toggle,
+  .menu-mobile,
+  .menu-overlay {
     display: none !important;
   }
 
@@ -209,9 +214,9 @@ a {
   }
 }
 
-/**********************/
+
+/****************************************************************************/
 /* SEÇÃO DA HERO */
-/*********************/
 
 .hero {
   height: 100vh;
@@ -222,14 +227,14 @@ a {
   padding: 0 5%;
   position: relative;
   z-index: 1;
-  color: var(--text-light); 
+  color: var(--text-light);
 }
 
 .hero-container::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7));
   z-index: 0;
 }
 
@@ -321,15 +326,24 @@ a {
 /* TABLET */
 
 @media (min-width: 768px) {
-  .hero-subtitle { font-size: 1.3rem; }
-  .hero-title { font-size: 3.8rem; }
-  
-  .secondary p { 
-    font-size: 1.1rem; 
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+
+  .hero-title {
+    font-size: 3.8rem;
+  }
+
+  .secondary p {
+    font-size: 1.1rem;
     max-width: 700px;
   }
-  
-  .hero .btn { font-size: 1.1rem; } /* Ajustado: 1.3rem era muito grande para um botão fino */
+
+  .hero .btn {
+    font-size: 1.1rem;
+  }
+
+  /* Ajustado: 1.3rem era muito grande para um botão fino */
 }
 
 /* DESKTOP */
@@ -344,25 +358,38 @@ a {
 
   .primary {
     margin-top: 40px;
-    margin-bottom: 60px; /* Ajuste este valor (40px a 60px) conforme seu gosto */
+    margin-bottom: 60px;
+    /* Ajuste este valor (40px a 60px) conforme seu gosto */
   }
 
-  
-  .hero-title { font-size: 5rem; }
+
+  .hero-title {
+    font-size: 5rem;
+  }
 
   .secondary p {
-    margin: 0 0 2rem 0; 
+    margin: 0 0 2rem 0;
     font-size: 1.6rem;
   }
-  
+
 }
 
-/*************************/
+/*************************************************************************************
 /* --- SEÇÃO CIDADES --- */
-/*************************/
 
 .city {
+  display: flex;
+  flex-direction: column;
+  /* Garante que os elementos fiquem um abaixo do outro */
+  align-items: center;
+  /* A MÁGICA: Centraliza todos os filhos horizontalmente */
   position: relative;
+}
+
+.city-container {
+  width: 100%;
+  padding: 40px 5%;
+  box-sizing: border-box;
 }
 
 .city-content {
@@ -379,18 +406,16 @@ a {
   padding-top: 4rem;
 }
 
-/* SLIDES */
-
 .slider-wrapper {
   display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  /* Gap levemente menor para telas pequenas */
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  padding: 0 5%;
-  gap: 16px;
-  list-style: none;
-
-  -webkit-overflow-scrolling: touch;
+  /* Força o "imã" no slide */
+  width: 100%;
+  padding: 0;
   scrollbar-width: none;
 }
 
@@ -401,6 +426,7 @@ a {
 .slide {
   position: relative;
   flex: 0 0 100%;
+  /* 1 Card no Mobile */
   height: 480px;
   border-radius: 15px;
   overflow: hidden;
@@ -418,28 +444,21 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top,
-      rgba(0, 0, 0, 0.85) 0%,
-      rgba(0, 0, 0, 0.4) 50%,
-      rgba(0, 0, 0, 0.1) 100%);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
   z-index: 1;
 }
 
-/* TEXTOS */
-
+/* textos */
 
 .slide-text {
   position: absolute;
   inset: 0;
   z-index: 2;
   padding: 30px;
-
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-
-
   gap: 10px;
 }
 
@@ -447,44 +466,44 @@ a {
   font-family: var(--font-title);
   color: var(--text-light);
   font-size: 1.8rem;
-  margin: 0;
   text-transform: uppercase;
   line-height: 1.1;
 }
 
 .slide-text p {
   color: var(--text-light);
-  font-size: 1rem;
-  line-height: 1.5;
-  margin: 0;
   max-width: 90%;
   text-align: center;
+  opacity: 0.9;
 }
 
 /* BOTÃO */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 30px;
+  
+}
 
 .city .btn {
   background: transparent;
   border: none;
   border-bottom: 1px solid var(--text-light);
-
   color: var(--text-light);
   cursor: pointer;
-
   display: inline-flex;
   align-items: center;
   gap: 12px;
-
   font-size: 0.9rem;
-  font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   transition: all 0.3s ease;
 
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-top: 30px;
-
+  /* ZERAMOS AS MARGENS AQUI */
+  margin: 0;
+  padding: 8px 0;
 }
 
 .city .btn img {
@@ -532,54 +551,100 @@ a {
 
 
 /* --- RESPONSIVIDADE DA SEÇÃO CIDADES--- */
+
 /* TABLET */
 
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width: 1023px) {
 
-  .city-content h2 {
-    font-size: 1.8rem;
+  .city-container {
+    width: 100%;
+    padding: 60px 5%;
   }
 
-  .slide {
-    flex: 0 0 75%;
-    height: 520px;
+  .slider-wrapper {
+    padding: 0;
+    gap: 20px;
+    display: flex;
+    overflow-x: auto;
+    width: 100%;
+    scrollbar-width: none;
   }
 
-  .slide-text {
-    padding: 35px;
+  .slider-wrapper::-webkit-scrollbar {
+    display: none;
   }
 
   .slide-text h3 {
-    font-size: 2.3rem;
+    font-size: 1.8rem;
   }
 
   .slide-text p {
     font-size: 1.1rem;
-    max-width: 75%;
+    max-width: 80%;
   }
 
-  .city .btn {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 15px;
+  .slide {
+
+    flex: 0 0 calc((100% - 20px) / 2);
+    height: 480px;
+    scroll-snap-align: start;
   }
 
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
 
 /* DESKTOP */
+
 @media (min-width: 1024px) {
 
+  .city-container {
+    width: 100%;
+    padding: 80px 5%;
+    /* folga lateral */
+  }
+
+  .slider-wrapper {
+    padding: 0;
+    gap: 20px;
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .slide-text h3 {
+    font-size: 1.3rem;
+  }
+
+  .slide-text p {
+    font-size: 0.9rem;
+    max-width: 85%;
+  }
+
+
   .slide {
-    flex: 0 0 calc(50% - 16px);
-    /* Ajuste exato: 50% da tela menos o gap */
-    height: 450px;
+
+    flex: 0 0 calc((100% - 60px) / 4);
+    height: 360px;
+    scroll-snap-align: start;
+  }
+
+
+  .slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
 }
 
-/**********************/
+
+
+/******************************************************************************/
 /* SEÇÃO DEPOIMENTOS */
-/*********************/
 
 .testimonials {
   background-color: var(--bg-dark);
@@ -854,7 +919,7 @@ a {
     flex: 0 0 380px;
   }
 }
- 
+
 
 /* --- FOOTER --- */
 
@@ -880,7 +945,7 @@ footer {
   align-items: center;
   text-align: center;
   gap: 60px;
- }
+}
 
 /* --- Cabeçalho do Footer --- */
 
@@ -936,13 +1001,13 @@ footer {
   filter: brightness(0) invert(1);
   transition: 0.3s ease;
   cursor: pointer;
- 
+
 }
 
 /* Lista do Institucional */
 
 .footer-nav {
- 
+
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -967,7 +1032,7 @@ footer {
 }
 
 .footer-textinfinity h3 {
-  font-size: 10rem  ;
+  font-size: 10rem;
   font-family: "Benguiat", sans-serif;
   mix-blend-mode: color-dodge;
   color: #d4d2d2;
@@ -979,7 +1044,7 @@ footer {
 @keyframes textinfinity {
 
   100% {
-      transform: translateX(-100%);
+    transform: translateX(-100%);
 
   }
 }
@@ -1003,14 +1068,15 @@ footer {
   }
 
 }
+
 @media (min-width: 1024px) {
-  
+
   .footer-content {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 100px 8% 0 8%; 
+    padding: 100px 8% 0 8%;
     text-align: left;
     gap: 100px;
   }
@@ -1018,8 +1084,8 @@ footer {
   /* Bloco de Texto (Título/Subtítulo) em COLUNA */
   .footer-header {
     display: flex;
-    flex-direction: column; 
-    flex: 0 0 30%; 
+    flex-direction: column;
+    flex: 0 0 30%;
     text-align: left;
   }
 
@@ -1032,15 +1098,15 @@ footer {
   /* Bloco de Seções (Redes Sociais, Serviços, etc.) LADO A LADO */
   .footer-sections {
     display: flex;
-    flex-direction: row; 
-    flex: 1; 
+    flex-direction: row;
+    flex: 1;
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
   }
 
   /* Garante que cada coluna dentro de footer-sections se comporte bem */
-  .footer-sections > div {
+  .footer-sections>div {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -1049,7 +1115,7 @@ footer {
 
   /* Alinhamento dos ícones sociais à esquerda no desktop */
   .social-media .images {
-    margin: 0; 
+    margin: 0;
   }
 
   /* Texto Infinito (Marquee) */
