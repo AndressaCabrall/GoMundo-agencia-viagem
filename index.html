@@ -4,17 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./icons/stranger-things-logo-loader.svg" type="image/x-icon">
+    <link rel="shortcut icon" href="./icons/logo-GoMundo.svg" type="image/x-icon">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
     </style>
 
-    <title>GoMundo</title>
+    <title>GoMundo-Agência de Viagens</title>
     <link rel="stylesheet" href="styles/style.css">
 
 </head>
 
 <body>
+
+
 
     <!-- Div Scroll Smooth -->
 
@@ -25,17 +27,47 @@
             <!--Header-->
 
             <header class="site-header" aria-label="header">
+                <div class="header-container">
 
-                <h2>GoMundo.</h2>
+                    <div class="header-logo">
+                        <img class="card-image" src="./icons/logo-GoMundo.svg" alt="Logo da GoMundo">
+                    </div>
 
+                    <nav class="nav-menu" id="nav-menu" aria-label="Navegação Principal">
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#destination">Destinos</a></li>
+                            <li><a href="#testimonials">Depoimentos</a></li>
+                            <li><a href="#contact">Contato</a></li>
 
+                        </ul>
+                    </nav>
+
+                    <button class="menu-toggle" id="menu-toggle" aria-label="Abrir Menu">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+
+                    <nav class="menu-mobile" id="menu-mobile" aria-label="Navegação Mobile">
+                        <ul>
+                            <li><a href="#hero">Home</a></li>
+                            <li><a href="#destination">Destinos</a></li>
+                            <li><a href="#testimonials">Depoimentos</a></li>
+                            <li><a href="#contact">Contato</a></li>
+
+                        </ul>
+                    </nav>
+                    <div class="menu-overlay" id="menu-overlay"></div>
+
+                </div>
 
             </header>
 
             <!--Seção da Hero-->
 
             <main>
-                <section class="hero" aria-label="Seção da Hero">
+                <section id="hero" class="hero" aria-label="Seção da Hero">
 
                     <div class="hero-container">
 
@@ -47,11 +79,11 @@
 
                         <div class="primary">
                             <h3 class="hero-subtitle">Destinos Extraordinários</h3>
-                            <h1 class="hero-title">Viajar é viver intensamente</h1>
+                            <h1 class="hero-title">Viajar é viver intensamente!</h1>
 
                         </div>
 
-                        <div class="secundary">
+                        <div class="secondary">
                             <p id="hero-text">Descubra culturas, sabores e paisagens inesquecíveis com uma curadoria
                                 especializada nos destinos mais fascinantes do mundo!</p>
 
@@ -71,100 +103,126 @@
 
                     <!-- Seção cidades -->
 
-                    <section class="cities" aria-label="Seção Cidades">
+                    <section id="destination" class="city" aria-label="Seção Cidades">
+                        <div class="city-container">
 
-                        <div class="cities-container">
-
-                            <div class="cities-content">
-
+                            <div class="city-content">
                                 <h2 class="textAnimation">PLANEJE SUAS FÉRIAS AQUI.</h2>
-
                             </div>
 
+                            <div class="slider-container">
 
-                            <ul class="cities-card">
+                                <ul class="slider-wrapper">
 
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/maldivas-card.webp" alt="Praia Maldivas">
-                                    <div class="card-text">
-                                        <h2>Ilha Maldivas</h2>
-                                        <p>Águas cristalinas, vilas sobre o mar e luxo absoluto em cenário paradisíaco.
-                                        </p>
-                                    </div>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/maldivas-card.webp"
+                                                alt="Praia Maldivas">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>Maldivas</h3>
+                                            <p>Águas cristalinas, vilas sobre o mar e luxo absoluto em cenário
+                                                paradisíaco.</p>
+                                        </div>
+                                    </li>
 
-                                </li>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/africa-card.webp"
+                                                alt="Girafa na Selva Africana">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>África do Sul</h3>
+                                            <p>Natureza selvagem e luxo exclusivo em paisagens grandiosas.</p>
+                                        </div>
+                                    </li>
 
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/africa-card.webp"
-                                        alt="Girafa na Selva Africana">
-                                    <div class="card-text">
-                                        <h2>África do Sul</h2>
-                                        <p>Natureza selvagem e luxo exclusivo em paisagens grandiosas.</p>
-                                    </div>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/toquio-card.webp"
+                                                alt="Templo Japonês">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>Tóquio</h3>
+                                            <p>Tradição, inovação e sofisticação em perfeito equilíbrio.</p>
+                                        </div>
+                                    </li>
 
-                                </li>
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/toquio-card.webp" alt="Templo Japonês">
-                                    <div class="card-text">
-                                        <h2>Toquio</h2>
-                                        <p>Tradição, inovação e sofisticação em perfeito equilíbrio.</p>
-                                    </div>
-                                </li>
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/noronha-card.webp" alt="Praia em Noronha">
-                                    <div class="card-text">
-                                        <h2>Ilha de Noronha</h2>
-                                        <p>Beleza intocada e sofisticação em cada mergulho.</p>
-                                    </div>
-                                </li>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/noronha-card.webp"
+                                                alt="Praia em Noronha">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>Noronha</h3>
+                                            <p>Beleza intocada e sofisticação em cada mergulho.</p>
+                                        </div>
+                                    </li>
 
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/grecia-card.webp" alt="Mar da Grecia">
-                                    <div class="card-text">
-                                        <h2>Grécia</h2>
-                                        <p>Ilhas icônicas e charme eterno à beira-mar.</p>
-                                    </div>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/grecia-card.webp"
+                                                alt="Mar da Grécia">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>Grécia</h3>
+                                            <p>Ilhas icônicas e charme eterno à beira-mar.</p>
+                                        </div>
+                                    </li>
 
-                                </li>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/veneza-card.webp"
+                                                alt="Cidade de Veneza">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>Veneza</h3>
+                                            <p>Canais românticos, arquitetura histórica e o charme eterno sobre as
+                                                águas.</p>
+                                        </div>
+                                    </li>
 
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/veneza-card.webp" alt="Cidade de Veneza">
-                                    <div class="card-text">
-                                        <h2>Veneza</h2>
-                                        <p>Canais românticos, arquitetura histórica e o charme eterno que flutua sobre
-                                            as águas.</p>
-                                    </div>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/newiork-card.webp" alt="New York">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>New York</h3>
+                                            <p>Energia vibrante e luxo urbano sem limites.</p>
+                                        </div>
+                                    </li>
 
-                                </li>
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/novaiork-card.webp" alt="Nova Iork USA">
-                                    <div class="card-text">
-                                        <h2>Nova Iork</h2>
-                                        <p>Energia vibrante e luxo urbano sem limites.</p>
-                                    </div>
-                                </li>
-                                <li class="city-card">
-                                    <img class="card-image" src="./imagens/toronto-card.webp" alt="Toronto Canadá">
-                                    <div class="card-text">
-                                        <h2>Toronto</h2>
-                                        <p>Paisagens imponentes e experiências refinadas na natureza.</p>
-                                    </div>
-                                </li>
+                                    <li class="slide">
+                                        <div class="slide-image-wrapper">
+                                            <img class="slide-image" src="./imagens/toronto-card.webp"
+                                                alt="Toronto Canadá">
+                                        </div>
+                                        <div class="slide-text">
+                                            <h3>Toronto</h3>
+                                            <p>Paisagens imponentes e experiências refinadas na natureza.</p>
+                                        </div>
+                                    </li>
 
-                            </ul>
+                                </ul>
+                                <div class="slider-dots">
+                                    <button class="active"></button>
+                                    <button></button>
+                                    <button></button>
+                                </div>
+                            </div>
 
-                            <button>
-                                CONFIRA NOSSOS PACOTES DE VIAGENS
+                            <button class="btn">
+                                NOSSOS PACOTES DE VIAGEM
                                 <img src="./icons/seta-botao.svg" alt="Seta">
                             </button>
+
+
                         </div>
-
-
                     </section>
 
                     <!-- Seção Depoimentos -->
 
-                    <section class="testimonials" aria-label="Seção Depoimentos">
+                    <section id="testimonials" class="testimonials" aria-label="Seção Depoimentos">
 
                         <div class="testimonials-container">
 
@@ -179,6 +237,12 @@
                                     <p>“A GoMundo nos mostrou um novo padrão de viagem. Guias excepcionais, itinerários
                                         escolhidos a dedo e um atendimento impecável do início ao fim. Superou todas as
                                         nossas expectativas.” — Mariana F.
+                                    </p>
+                                </li>
+                                <li class="item">
+                                    <p>"Viajar com a Gomundo foi surpreendente do começo ao fim. Organização, atenção e
+                                        cuidado em cada etapa. Nos sentimos seguros e acolhidos durante toda a jornada.”
+                                        — Rafael Lima
                                     </p>
                                 </li>
                                 <li class="item">
@@ -198,13 +262,13 @@
 
                     </section>
 
-                    <!-- Seção Communities -->
+                    <!-- Seção Contacto -->
 
-                    <section class="communities" aria-label="Seção Comunidades">
+                    <section id="contact" class="contact" aria-label="Seção Contatos">
 
-                        <div class="communities-container">
+                        <div class="contact-container">
 
-                            <div class="communities-text">
+                            <div class="contact-text">
                                 <h2 class="textAnimation">OBRIGADO POR SE JUNTAR A NÓS NESTA AVENTURA</h2>
                                 <p>
                                     Faça parte da nossa comunidade de viajantes e receba experiências
@@ -214,7 +278,7 @@
                             </div>
 
 
-                            <ul class="communities-list">
+                            <ul class="contact-list">
 
                                 <li>Nova Iorque</li>
                                 <li>Noronha</li>
@@ -229,18 +293,18 @@
 
                             </ul>
 
-                            <form class="community-form">
+                            <form class="contact-form">
                                 <h3>Receba experiências exclusivas</h3>
 
-                                <div class="form-group">
+                                <div class="contact-group">
                                     <input type="text" placeholder="Seu nome" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="contact-group">
                                     <input type="email" placeholder="Seu melhor e-mail" required>
                                 </div>
 
-                                <div class="form-group">
+                                <div class="contact-group">
                                     <select required>
                                         <option value="">Destino dos seus sonhos</option>
                                         <option>Maldivas</option>
@@ -251,7 +315,7 @@
                                     </select>
                                 </div>
 
-                                <button type="submit">Quero fazer parte</button>
+                                <button type="submit">Quero receber</button>
                             </form>
                         </div>
 
@@ -274,7 +338,7 @@
 
                         <div class="footer-text">
                             <h3 class="footer-subtitle">A Arte de Explorar</h3>
-                            <h2 class="footer-title">Cada viagem, uma história inesquecível!</h2>
+                            <h2 class="footer-title">Cada viagem uma história inesquecível!</h2>
                         </div>
 
                         <div class="footer-sections">
@@ -310,7 +374,7 @@
                                     <li>Planejamento completo</li>
 
                                 </ul>
-                                
+
 
                             </div>
 
@@ -328,10 +392,7 @@
 
                                 </ul>
 
-
-
                             </div>
-
                         </div>
 
                     </div>
@@ -341,7 +402,8 @@
 
                         <h3>DESTINOS EXTRAORDINÁRIOS</h3>
                         <h3>DESTINOS EXTRAORDINÁRIOS</h3>
-
+                        <h3>DESTINOS EXTRAORDINÁRIOS</h3>
+                        
                     </div>
 
                 </div>
@@ -354,10 +416,7 @@
 
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
+   
 
     <script src="/js/script.js"></script>
 
