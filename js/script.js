@@ -161,3 +161,38 @@ gsap.to(".mundo", {
       scrub: true
     }
   });
+
+  //Animação do Hero-text
+
+// 1. Criar o Split do texto
+
+const splitHero = new SplitText("#hero-text", {
+    type: "lines, words, chars",
+    linesClass: "split-line"
+});
+
+// 2. Cria a Timeline para o texto
+const tlText = gsap.timeline({ delay:0.8 }); // Começa um pouco depois da imagem
+
+tlText.from(splitHero.chars, {
+    duration: 0.8,
+    y: 40,               
+    opacity: 0,         
+    rotateX: -90,        
+    stagger: 0.02,       
+    ease: "power2.out",
+});
+
+/******************************************************************************** */
+
+// Footer (Efeito Parallax Reverso)
+
+gsap.from("footer", {
+  yPercent: -60,
+  scrollTrigger: {
+    trigger: "footer",
+    start: "top bottom",
+    end: "bottom bottom",
+    scrub: 1
+  }
+});
