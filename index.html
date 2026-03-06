@@ -87,11 +87,11 @@
                             <p id="hero-text">Descubra culturas, sabores e paisagens inesquecíveis com uma curadoria
                                 especializada nos destinos mais fascinantes do mundo!</p>
 
-                                <div class="btn-container">
-                                    <button class="btn">
-                                      Explorar Agora <img src="./icons/seta-botao.svg"alt="Seta">
-                                    </button>
-                                  </div>
+                            <div class="btn-container">
+                                <button class="btn">
+                                    Explorar Agora <img src="./icons/seta-botao.svg" alt="Seta">
+                                </button>
+                            </div>
 
                         </div>
 
@@ -214,9 +214,9 @@
 
                             <div class="btn-container">
                                 <button class="btn">
-                                  Conheça nossos Pacotes <img src="./icons/seta-botao.svg"alt="Seta">
+                                    Conheça nossos Pacotes <img src="./icons/seta-botao.svg" alt="Seta">
                                 </button>
-                              </div>
+                            </div>
 
 
                         </div>
@@ -295,34 +295,37 @@
 
                             </ul>
 
-                            <form class="contact-form">
+                            <form class="contact-form" method="POST">
+
                                 <h3>Receba experiências exclusivas</h3>
 
                                 <div class="contact-group">
-                                    <input type="text" placeholder="Seu nome" required>
+                                    <input type="text" name="nome" placeholder="Seu nome" required>
                                 </div>
 
                                 <div class="contact-group">
-                                    <input type="email" placeholder="Seu melhor e-mail" required>
+                                    <input type="email" name="email" placeholder="Seu melhor e-mail" required>
                                 </div>
 
                                 <div class="contact-group">
-                                    <select required>
+                                    <select name="destino" required>
                                         <option value="">Destino dos seus sonhos</option>
-                                        <option>Maldivas</option>
-                                        <option>Paris</option>
-                                        <option>Bali</option>
-                                        <option>Grécia</option>
-                                        <option>Japão</option>
-                                        <option>New Iork</option>
-                                        <option>Toronto</option>
-                                        <option>Veneza</option>
-                                        <option>África</option>
+                                        <option value="Maldivas">Maldivas</option>
+                                        <option value="Paris">Paris</option>
+                                        <option value="Bali">Bali</option>
+                                        <option value="Grécia">Grécia</option>
+                                        <option value="Japão">Japão</option>
+                                        <option value="New York">New York</option>
+                                        <option value="Toronto">Toronto</option>
+                                        <option value="Veneza">Veneza</option>
+                                        <option value="África">África</option>
                                     </select>
                                 </div>
 
                                 <button type="submit">Quero receber</button>
+
                             </form>
+
                         </div>
 
                     </section>
@@ -409,7 +412,7 @@
                         <h3>DESTINOS EXTRAORDINÁRIOS</h3>
                         <h3>DESTINOS EXTRAORDINÁRIOS</h3>
                         <h3>DESTINOS EXTRAORDINÁRIOS</h3>
-                        
+
                     </div>
 
                 </div>
@@ -422,9 +425,24 @@
 
     </div>
 
-   
+    <div id="popup-sucesso" class="popup-overlay" style="display: none;">
+        <div class="popup-card">
+            <h2 id="popup-titulo">✈️ Enviado!</h2>
+            <p id="popup-mensagem">Seus dados foram salvos com sucesso.</p>
+            <button id="fechar-btn">Fechar</button>
+        </div>
+    </div>
 
-    <script src="/js/script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <!-- ScrollSmoother requires ScrollTrigger -->
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
+
+  <script src="./js/script.js"></script>
+
 
 </body>
 
