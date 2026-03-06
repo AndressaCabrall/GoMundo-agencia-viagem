@@ -130,3 +130,34 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
+//**************************************************************************************** */
+
+//Efeito Scroll suave
+const smoother = ScrollSmoother.create({
+    wrapper: "#smooth-wrapper",
+    content: "#smooth-content",
+    smooth: 1.5,
+    effects: true
+  });
+  
+
+// 1. Animação de entrada (Imagem descendo no load)
+// Usamos yPercent: -15 para ela vir de cima, mas mantendo o preenchimento
+gsap.from(".mundo", {
+    yPercent: -15, 
+    duration: 1.8,
+    ease: "power2.out"
+  });
+
+// Parallax da Imagem
+
+gsap.to(".mundo", {
+    y: 100,
+    ease: "none",
+    scrollTrigger: {
+      trigger: ".hero",
+      start: "top top",
+      end: "bottom top",
+      scrub: true
+    }
+  });
