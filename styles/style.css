@@ -290,6 +290,14 @@ a {
 
 /* BOTÃO */
 
+.hero .btn-container{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:14px;
+  margin-top:20px;
+}
+
 .hero .btn {
   background: transparent;
   border: none;
@@ -328,6 +336,55 @@ a {
 
 }
 
+/* Botão do whatsApp na Hero */
+/* Botão do WhatsApp Otimizado */
+.hero .btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  padding: 12px 24px;
+  background-color: #25D366;
+  color: #ffffff;
+
+  border-radius: 8px; /* Bordas levemente mais arredondadas */
+  text-decoration: none;
+
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+
+  /* Sombra suave para dar profundidade */
+  box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+  
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.hero .btn-whatsapp svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+  transition: transform 0.3s ease;
+}
+
+/* Efeitos de Hover e Ativo */
+.hero .btn-whatsapp:hover {
+  background-color: #1ebe5d;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.hero .btn-whatsapp:hover svg {
+  transform: scale(1.1); /* O ícone cresce levemente no hover */
+}
+
+.hero .btn-whatsapp:active {
+  transform: translateY(-1px);
+}
+
 /* RESPONSIVIDADE DA HERO */
 
 /* TABLET */
@@ -349,6 +406,11 @@ a {
   .hero .btn {
     font-size: 1.1rem;
   }
+
+  .hero .btn-container{
+    flex-direction:row;
+  }
+  
 
   /* Ajustado: 1.3rem era muito grande para um botão fino */
 }
@@ -380,6 +442,8 @@ a {
   }
 
 }
+
+
 
 /*************************************************************************************
 
@@ -1255,5 +1319,75 @@ a {
       letter-spacing: 10px;
       padding-right: 100px;
       animation-duration: 20s;
+  }
+}
+
+/* Botão do WhatsApp */
+/* ================= BOTÃO WHATSAPP ================= */
+
+/* Mobile First - Base */
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  text-decoration: none;
+  animation: pulse-whatsapp 2s ease-in-out infinite;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.2);
+}
+
+.whatsapp-float img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Pulsação sutil */
+@keyframes pulse-whatsapp {
+  0%, 100% {
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.5);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .whatsapp-float {
+    bottom: 25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+  }
+
+  .whatsapp-float img {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .whatsapp-float {
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+  }
+
+  .whatsapp-float img {
+    width: 35px;
+    height: 35px;
   }
 }
