@@ -146,7 +146,7 @@ const smoother = ScrollSmoother.create({
 //**************************************************************************************** */
 // 1. Animação de entrada (Imagem descendo no load)
 
-gsap.from(".mundo", {
+gsap.from(".hero-mundo", {
     yPercent: -15, 
     duration: 1.8,
     ease: "power2.out"
@@ -158,7 +158,7 @@ gsap.from(".mundo", {
 //**************************************************************************************** */
 // Parallax da Imagem
 
-gsap.to(".mundo", {
+gsap.to(".hero-mundo", {
     y: 100,
     ease: "none",
     scrollTrigger: {
@@ -191,6 +191,7 @@ tlText.from(splitHero.chars, {
 });
 
 /******************************************************************************** */
+// SLIDES
 
 const swiper = new Swiper(".swiper", {
   // Mostra 4 cards no desktop, 1 no mobile
@@ -229,4 +230,18 @@ const swiper = new Swiper(".swiper", {
       spaceBetween: 20,
     },
   },
+});
+
+//************************************************************************* */
+
+// Parallax da imagem do footer
+gsap.to(".footer-mundo", {
+  y: 150,
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top bottom", 
+    end: "bottom top",   
+    scrub: true
+  }
 });
