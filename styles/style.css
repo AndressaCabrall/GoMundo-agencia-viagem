@@ -383,14 +383,12 @@ a {
 }
 
 /*************************************************************************************
-/* --- SEÇÃO CIDADES --- */
 
+/* --- SEÇÃO CIDADES --- */
 .city {
   display: flex;
   flex-direction: column;
-  /* Garante que os elementos fiquem um abaixo do outro */
   align-items: center;
-  /* A MÁGICA: Centraliza todos os filhos horizontalmente */
   position: relative;
 }
 
@@ -406,7 +404,7 @@ a {
   text-align: center;
 }
 
-.city-content h2 {
+.textAnimation {
   font-family: var(--font-title);
   color: var(--text-light);
   font-size: 1.6rem;
@@ -414,66 +412,74 @@ a {
   padding-top: 4rem;
 }
 
+/* --- SWIPER CARROSSEL --- */
+
+.swiper {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
 .slider-wrapper {
   display: flex;
-  flex-wrap: nowrap;
-  gap: 16px;
-  /* Gap levemente menor para telas pequenas */
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  /* Força o "imã" no slide */
-  width: 100%;
-  padding: 0;
-  scrollbar-width: none;
+  align-items: stretch;
 }
 
-.slider-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.slide {
+.swiper-slide {
   position: relative;
-  flex: 0 0 100%;
-  /* 1 Card no Mobile */
-  height: 480px;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
+  height: 320px;
+  flex-shrink: 0;
 }
 
-.slide img {
+/* Container da imagem - Garantindo que ele fique atrás de tudo */
+
+.slide-image-wrapper {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  z-index: 0; /* Imagem na base */
 }
 
-.slide::before {
+.slide-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block; /* Garante renderização como bloco */
+}
+
+/* Gradiente sobre a imagem */
+.swiper-slide::before {
   content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.1) 100%);
-  z-index: 1;
+  z-index: 1; /* Acima da imagem */
+  border-radius: 12px;
 }
 
-/* textos */
-
+/* Textos - No topo de tudo */
 .slide-text {
   position: absolute;
   inset: 0;
-  z-index: 2;
-  padding: 30px;
+  z-index: 2; /* Acima do gradiente */
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  gap: 10px;
+  gap: 8px;
 }
 
 .slide-text h3 {
   font-family: var(--font-title);
   color: var(--text-light);
-  font-size: 1.8rem;
+  font-size: 1.3rem;
   text-transform: uppercase;
   line-height: 1.1;
 }
@@ -482,17 +488,41 @@ a {
   color: var(--text-light);
   max-width: 90%;
   text-align: center;
+  font-size: 0.85rem;
   opacity: 0.9;
 }
 
-/* BOTÃO */
+/* --- PAGINAÇÃO E NAVEGAÇÃO --- */
+
+.swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  background: var(--text-light); 
+  opacity: 0.5;
+}
+
+.swiper-pagination {
+  margin-top: 30px;
+  position: relative;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--text-light);
+  opacity: 1;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--text-light);
+}
+
+/* --- BOTÃO --- */
 
 .btn-container {
+  width: 100%;
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-top: 30px;
-  
+  margin-top: 20px;
 }
 
 .city .btn {
@@ -508,144 +538,21 @@ a {
   text-transform: uppercase;
   letter-spacing: 1.5px;
   transition: all 0.3s ease;
-
-  /* ZERAMOS AS MARGENS AQUI */
-  margin: 0;
   padding: 8px 0;
 }
 
-.city .btn img {
-  width: 16px;
-  height: auto;
-  object-fit: contain;
-  transition: transform 0.3s ease;
 
-}
-
-.city .btn:hover {
-  border-bottom-color: var(--text-light);
-  gap: 18px;
-
-}
-
-.city .btn:hover img {
-  transform: translateX(5px);
-
-}
-
-/* ---------- DOTS (BOLINHAS) ---------- */
-
-.slider-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 30px;
-}
-
-.slider-dots button {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  border: none;
-  background: rgba(255, 255, 255, 0.4);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.slider-dots button.active {
-  background: var(--text-light);
-  transform: scale(1.3);
-}
-
-
-/* --- RESPONSIVIDADE DA SEÇÃO CIDADES--- */
-
-/* TABLET */
-
-@media (min-width: 768px) and (max-width: 1023px) {
-
-  .city-container {
-    width: 100%;
-    padding: 60px 5%;
-  }
-
-  .slider-wrapper {
-    padding: 0;
-    gap: 20px;
-    display: flex;
-    overflow-x: auto;
-    width: 100%;
-    scrollbar-width: none;
-  }
-
-  .slider-wrapper::-webkit-scrollbar {
-    display: none;
-  }
-
-  .slide-text h3 {
-    font-size: 1.8rem;
-  }
-
-  .slide-text p {
-    font-size: 1.1rem;
-    max-width: 80%;
-  }
-
-  .slide {
-
-    flex: 0 0 calc((100% - 20px) / 2);
-    height: 480px;
-    scroll-snap-align: start;
-  }
-
-  .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-}
-
-/* DESKTOP */
 
 @media (min-width: 1024px) {
+  .swiper-slide { height: 320px; }
 
-  .city-container {
-    width: 100%;
-    padding: 80px 5%;
-    /* folga lateral */
-  }
-
-  .slider-wrapper {
-    padding: 0;
-    gap: 20px;
+  .btn-container {
     display: flex;
-    overflow: hidden;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
     width: 100%;
-  }
-
-  .slide-text h3 {
-    font-size: 1.3rem;
-  }
-
-  .slide-text p {
-    font-size: 0.9rem;
-    max-width: 85%;
-  }
-
-
-  .slide {
-
-    flex: 0 0 calc((100% - 60px) / 4);
-    height: 360px;
-    scroll-snap-align: start;
-  }
-
-
-  .slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    margin-top: 40px; /* Espaço entre o carrossel/bullets e o botão */
+}
 
 }
 
@@ -945,11 +852,7 @@ a {
 /* --- FOOTER --- */
 
 footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: -1;
+  position: relative;
   width: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)),
     url("../imagens/maldivas-mobile.webp");
@@ -960,6 +863,7 @@ footer {
   padding: 100px 0 0 0;
   color: var(--text-light);
   overflow: hidden;
+  
 
 }
 

@@ -52,7 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //************************************************************************************************ */
 
-// Função do Pop Up para Formulário
+// Pop Up para Formulário.
+
 document.addEventListener("DOMContentLoaded", () => {
   const form = document.querySelector(".contact-form");
   const popup = document.querySelector("#popup-sucesso");
@@ -130,9 +131,11 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   }
 });
+
 //**************************************************************************************** */
 
 //Efeito Scroll suave
+
 const smoother = ScrollSmoother.create({
     wrapper: "#smooth-wrapper",
     content: "#smooth-content",
@@ -140,15 +143,19 @@ const smoother = ScrollSmoother.create({
     effects: true
   });
   
-
+//**************************************************************************************** */
 // 1. Animação de entrada (Imagem descendo no load)
-// Usamos yPercent: -15 para ela vir de cima, mas mantendo o preenchimento
+
 gsap.from(".mundo", {
     yPercent: -15, 
     duration: 1.8,
     ease: "power2.out"
   });
 
+
+
+
+//**************************************************************************************** */
 // Parallax da Imagem
 
 gsap.to(".mundo", {
@@ -162,9 +169,9 @@ gsap.to(".mundo", {
     }
   });
 
-  //Animação do Hero-text
 
-// 1. Criar o Split do texto
+//**************************************************************************************** */
+//Animação do Hero-text
 
 const splitHero = new SplitText("#hero-text", {
     type: "lines, words, chars",
@@ -185,14 +192,41 @@ tlText.from(splitHero.chars, {
 
 /******************************************************************************** */
 
-// Footer (Efeito Parallax Reverso)
+const swiper = new Swiper(".swiper", {
+  // Mostra 4 cards no desktop, 1 no mobile
+  slidesPerView: 1,
+  spaceBetween: 20,
 
-gsap.from("footer", {
-  yPercent: -60,
-  scrollTrigger: {
-    trigger: "footer",
-    start: "top bottom",
-    end: "bottom bottom",
-    scrub: 1
-  }
+  // Loop infinito
+  loop: true,
+
+  // Autoplay
+  autoplay: {
+    delay: 4000,
+    disableOnInteraction: false,
+  },
+
+  // Paginação (dots)
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+
+  // Setas de navegação
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  // Responsivo
+  breakpoints: {
+    1024: {
+      slidesPerView: 4,
+      spaceBetween: 30,
+    },
+    768: {
+      slidesPerView: 2,
+      spaceBetween: 20,
+    },
+  },
 });

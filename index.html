@@ -10,7 +10,10 @@
     </style>
 
     <title>GoMundo-Agência de Viagens</title>
+    <!-- CSS do Swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="styles/style.css">
+
 
 </head>
 
@@ -111,11 +114,14 @@
                                 <h2 class="textAnimation">PLANEJE SUAS FÉRIAS AQUI.</h2>
                             </div>
 
-                            <div class="slider-container">
 
-                                <ul class="slider-wrapper">
+                            <div class="slider-carrossel swiper">
 
-                                    <li class="slide">
+
+                                <ul class="slider-wrapper swiper-wrapper">
+
+
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/maldivas-card.webp"
                                                 alt="Praia Maldivas">
@@ -127,7 +133,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="slide">
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/africa-card.webp"
                                                 alt="Girafa na Selva Africana">
@@ -138,7 +144,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="slide">
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/toquio-card.webp"
                                                 alt="Templo Japonês">
@@ -149,7 +155,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="slide">
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/noronha-card.webp"
                                                 alt="Praia em Noronha">
@@ -160,7 +166,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="slide">
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/grecia-card.webp"
                                                 alt="Mar da Grécia">
@@ -171,7 +177,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="slide">
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/veneza-card.webp"
                                                 alt="Cidade de Veneza">
@@ -183,7 +189,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="slide">
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/newiork-card.webp" alt="New York">
                                         </div>
@@ -193,7 +199,7 @@
                                         </div>
                                     </li>
 
-                                    <li class="slide">
+                                    <li class="slide swiper-slide">
                                         <div class="slide-image-wrapper">
                                             <img class="slide-image" src="./imagens/toronto-card.webp"
                                                 alt="Toronto Canadá">
@@ -205,11 +211,14 @@
                                     </li>
 
                                 </ul>
-                                <div class="slider-dots">
-                                    <button class="active"></button>
-                                    <button></button>
-                                    <button></button>
-                                </div>
+
+                                <!-- Paginação do Swiper (substitui os dots manuais) -->
+                                <div class="swiper-pagination"></div>
+
+                                <!-- Setas de navegação -->
+                                <div class="swiper-button-prev"></div>
+                                <div class="swiper-button-next"></div>
+
                             </div>
 
                             <div class="btn-container">
@@ -217,7 +226,6 @@
                                     Conheça nossos Pacotes <img src="./icons/seta-botao.svg" alt="Seta">
                                 </button>
                             </div>
-
 
                         </div>
                     </section>
@@ -441,7 +449,10 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollSmoother.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
 
-  <script src="./js/script.js"></script>
+    <!-- JS do Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script src="./js/script.js"></script>
 
 
 </body>
