@@ -293,7 +293,7 @@ a {
 .hero .btn-container{
   display:flex;
   flex-direction:column;
-  align-items:flex-start;
+  align-items:center;
   gap:14px;
   margin-top:20px;
 }
@@ -390,6 +390,7 @@ a {
 /* TABLET */
 
 @media (min-width: 768px) {
+
   .hero-subtitle {
     font-size: 1.3rem;
   }
@@ -407,12 +408,16 @@ a {
     font-size: 1.1rem;
   }
 
-  .hero .btn-container{
-    flex-direction:row;
+  .hero .btn-container {
+    flex-direction: row;    
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;             
   }
-  
-
-  /* Ajustado: 1.3rem era muito grande para um botão fino */
+  .hero .btn-whatsapp {
+    width: auto;            
+    max-width: none;
+  }
 }
 
 /* DESKTOP */
@@ -428,7 +433,7 @@ a {
   .primary {
     margin-top: 40px;
     margin-bottom: 60px;
-    /* Ajuste este valor (40px a 60px) conforme seu gosto */
+    
   }
 
 
@@ -439,6 +444,22 @@ a {
   .secondary p {
     margin: 0 0 2rem 0;
     font-size: 1.6rem;
+  }
+
+  .hero .btn-container {
+    justify-content: flex-start; 
+    gap: 25px;
+  }
+  .hero .btn-whatsapp {
+    padding: 14px 28px;
+    font-size: 0.95rem;
+    letter-spacing: 1.2px; /
+  }
+
+  /* Efeito de brilho sutil exclusivo para Desktop */
+  .hero .btn-whatsapp:hover {
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+    background-color: #16a34a;
   }
 
 }
