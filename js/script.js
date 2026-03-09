@@ -80,51 +80,71 @@ document.addEventListener("DOMContentLoaded", () => {
     handleResize(); // Executa uma vez no load
   }
 
-  // =================================================================
-  // 3. POPUP FORMULÁRIO
-  // =================================================================
-  const abrirPopup = (mensagem, tipo = 'sucesso') => {
-    const popup = document.querySelector("#popup-sucesso");
-    const card = document.querySelector(".popup-card");
-    const msg = document.querySelector("#popup-mensagem");
-    const titulo = document.querySelector("#popup-titulo");
-    const icon = document.querySelector(".popup-icon");
+ // =================================================================
+// 3. POPUP FORMULÁRIO
+// =================================================================
+const abrirPopup = (mensagem, tipo = 'sucesso') => {
+  const popup = document.querySelector("#popup-sucesso");
+  const card = document.querySelector(".popup-card");
+  const msg = document.querySelector("#popup-mensagem");
+  const titulo = document.querySelector("#popup-titulo");
+  const icon = document.querySelector(".popup-icon");
 
-    // 1. Reset e Preenchimento
-    msg.textContent = mensagem;
-    card.classList.remove('sucesso', 'erro');
-    card.classList.add(tipo);
-    
-    if(tipo === 'erro') {
-        titulo.textContent = "Erro!";
-        icon.textContent = "❌";
-    } else {
-        titulo.textContent = "Enviado!";
-        icon.textContent = "✈️";
-    }
+  // 1. Reset e Preenchimento
+  msg.textContent = mensagem;
+  card.classList.remove('sucesso', 'erro');
+  card.classList.add(tipo);
+  
+  if(tipo === 'erro') {
+      titulo.textContent = "Erro!";
+      icon.textContent = "❌";
+  } else {
+      titulo.textContent = "Enviado!";
+      icon.textContent = "✈️";
+  }
 
-    // 2. GSAP - Forçando o início
-    // Primeiro tornamos visível com opacidade 0
-    gsap.set(popup, { display: "flex", opacity: 0 });
-    
-    // Anima o fundo e o card em sequência
-    const tl = gsap.timeline();
-    tl.to(popup, { opacity: 1, duration: 0.3 })
-      .fromTo(card, 
-        { scale: 0.5, opacity: 0, y: 50 }, 
-        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }, 
-        "-=0.1"
-      );
+  // 2. GSAP - Forçando o início
+  gsap.set(popup, { display: "flex", opacity: 0 });
+  
+  const tl = gsap.timeline();
+  tl.to(popup, { opacity: 1, duration: 0.3 })
+    .fromTo(card, 
+      { scale: 0.5, opacity: 0, y: 50 }, 
+      { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }, 
+      "-=0.1"
+    );
 
-    if (window.smoother) smoother.paused(true);
+  if (window.smoother) smoother.paused(true);
 };
 
 // Listener para o botão fechar
 document.querySelector("#fechar-btn").addEventListener("click", () => {
-    gsap.to("#popup-sucesso", { opacity: 0, duration: 0.3, onComplete: () => {
-        document.querySelector("#popup-sucesso").style.display = "none";
-        if (window.smoother) window.smoother.paused(false);
-    }});
+  gsap.to("#popup-sucesso", { opacity: 0, duration: 0.3, onComplete: () => {
+      document.querySelector("#popup-sucesso").style.display = "none";
+      if (window.smoother) window.smoother.paused(false);
+  }});
+});
+
+// =================================================================
+// 4. CAPTURAR SUBMIT DO FORMULÁRIO
+// =================================================================
+const form = document.querySelector(".contact-form");
+
+form.addEventListener("submit", (e) => {
+  e.preventDefault(); // Evita recarregar a página
+
+  // Pega os valores dos campos
+  const nome = form.nome.value;
+  const email = form.email.value;
+  const destino = form.destino.value;
+
+  // Aqui você pode colocar validação extra se quiser
+
+  // Chama o popup de sucesso
+  abrirPopup("Sua mensagem foi entregue com sucesso!", "sucesso");
+
+  // Limpa o formulário
+  form.reset();
 });
 
   // =================================================================
