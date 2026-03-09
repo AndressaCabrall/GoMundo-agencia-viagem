@@ -900,6 +900,7 @@ a {
   border-color: var(--text-light);
 }
 
+
 /* RESPONSIVIDADE DA SEÇÃO CONTATOS */
 
 @media (min-width: 768px) {
@@ -1343,6 +1344,8 @@ a {
   }
 }
 
+
+
 /* Botão do WhatsApp */
 /* ================= BOTÃO WHATSAPP ================= */
 
@@ -1411,4 +1414,69 @@ a {
     width: 35px;
     height: 35px;
   }
+}
+
+
+/* CSS DA MENSAGEM POPUP */
+/* Reset de conflitos */
+.popup-overlay {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: none; /* O JS vai mudar para flex */
+  align-items: center;
+  justify-content: center;
+  z-index: 999999; /* Acima de TUDO */
+  backdrop-filter: blur(8px);
+}
+
+.popup-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  max-width: 380px;
+  width: 90%;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+  position: relative;
+  border-top: 8px solid #007bff; /* Cor padrão */
+}
+
+/* Classes de estado que o JS vai alternar */
+.popup-card.sucesso { border-top-color: #28a745; }
+.popup-card.erro { border-top-color: #dc3545; }
+
+.popup-icon {
+  font-size: 50px;
+  margin-bottom: 15px;
+}
+
+#popup-titulo {
+  margin: 0 0 10px;
+  font-family: sans-serif;
+  color: #333;
+}
+
+#popup-mensagem {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+#fechar-btn {
+  background: #333;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+#fechar-btn:hover {
+  transform: scale(1.05);
 }

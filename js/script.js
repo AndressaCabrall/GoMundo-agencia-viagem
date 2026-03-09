@@ -83,78 +83,49 @@ document.addEventListener("DOMContentLoaded", () => {
   // =================================================================
   // 3. POPUP FORMULÁRIO
   // =================================================================
-  const form = document.querySelector(".contact-form");
-  const popup = document.querySelector("#popup-sucesso");
-  const popupCard = document.querySelector(".popup-card");
-  const fecharBtn = document.querySelector("#fechar-btn");
-  const popupMensagem = document.querySelector("#popup-mensagem");
+  const abrirPopup = (mensagem, tipo = 'sucesso') => {
+    const popup = document.querySelector("#popup-sucesso");
+    const card = document.querySelector(".popup-card");
+    const msg = document.querySelector("#popup-mensagem");
+    const titulo = document.querySelector("#popup-titulo");
+    const icon = document.querySelector(".popup-icon");
 
-  if (popup && popupCard && popupMensagem) {
-    const abrirPopup = (mensagem, tipo = 'sucesso') => {
-      popupMensagem.textContent = mensagem;
-      popupCard.classList.remove('popup-sucesso', 'popup-erro');
-      popupCard.classList.add(tipo === 'erro' ? 'popup-erro' : 'popup-sucesso');
-      
-      popup.style.display = "flex";
-      
-      // Pausa scroll smoother no popup
-      if (smoother) smoother.paused(true);
-
-      gsap.from(popupCard, {
-        duration: 0.6,
-        scale: 0.5,
-        opacity: 0,
-        ease: "back.out(1.7)"
-      });
-    };
-
-    const fecharPopup = () => {
-      popup.style.display = "none";
-      // Retoma scroll smoother
-      if (smoother) smoother.paused(false);
-    };
-
-    if (fecharBtn) {
-      fecharBtn.addEventListener("click", fecharPopup);
+    // 1. Reset e Preenchimento
+    msg.textContent = mensagem;
+    card.classList.remove('sucesso', 'erro');
+    card.classList.add(tipo);
+    
+    if(tipo === 'erro') {
+        titulo.textContent = "Erro!";
+        icon.textContent = "❌";
+    } else {
+        titulo.textContent = "Enviado!";
+        icon.textContent = "✈️";
     }
 
-    popup.addEventListener("click", (e) => {
-      if (e.target === popup) fecharPopup();
-    });
+    // 2. GSAP - Forçando o início
+    // Primeiro tornamos visível com opacidade 0
+    gsap.set(popup, { display: "flex", opacity: 0 });
+    
+    // Anima o fundo e o card em sequência
+    const tl = gsap.timeline();
+    tl.to(popup, { opacity: 1, duration: 0.3 })
+      .fromTo(card, 
+        { scale: 0.5, opacity: 0, y: 50 }, 
+        { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.7)" }, 
+        "-=0.1"
+      );
 
-    if (form) {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        
-        const submitBtn = form.querySelector('button[type="submit"]');
-        if (submitBtn) submitBtn.disabled = true;
+    if (window.smoother) smoother.paused(true);
+};
 
-        try {
-          const formData = new FormData(form);
-          const response = await fetch("enviar.php", {
-            method: "POST",
-            body: formData 
-          });
-
-          if (!response.ok) throw new Error('Falha na resposta do servidor');
-
-          const data = await response.json();
-
-          if (data.status === "sucesso") {
-            abrirPopup(data.mensagem, 'sucesso');
-            form.reset();
-          } else {
-            abrirPopup(data.mensagem || "Erro ao salvar dados.", 'erro');
-          }
-        } catch (error) {
-          console.error("Erro:", error);
-          abrirPopup("Erro de conexão ou falha no servidor.", 'erro');
-        } finally {
-          if (submitBtn) submitBtn.disabled = false;
-        }
-      });
-    }
-  }
+// Listener para o botão fechar
+document.querySelector("#fechar-btn").addEventListener("click", () => {
+    gsap.to("#popup-sucesso", { opacity: 0, duration: 0.3, onComplete: () => {
+        document.querySelector("#popup-sucesso").style.display = "none";
+        if (window.smoother) window.smoother.paused(false);
+    }});
+});
 
   // =================================================================
   // 4. ANIMAÇÕES GSAP - Com verificações de elementos
